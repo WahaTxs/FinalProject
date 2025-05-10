@@ -13,7 +13,7 @@ public class IssueBookTest {
         library.addBook(book);
 
         boolean result = library.issueBook(book, student);
-        boolean expected = false;
+        boolean expected = true;
 
         Assertions.assertEquals(expected, result);
     }

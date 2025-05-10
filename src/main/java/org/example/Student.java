@@ -10,22 +10,33 @@ public class Student extends User {
         super(id, name);
         borrowedBooks = new ArrayList<>();
     }
+
     /**
      * Allows student to borrow a book.
      * @param book the book to borrow
      * @return true if the book was borrowed successfully,else otherwise
      */
     public boolean borrow(Book book) {
-        return false;
+        if (book == null || borrowedBooks.contains(book)) return false;
+        else {
+            borrowedBooks.add(book);
+            return true;
+        }
     }
+
     /**
      * Allows the student to return a borrowed book.
      * @param book the book to return
      * @return true if the return was successful, else otherwise
      */
     public boolean returnBook(Book book) {
-        return false;
+        if (book == null || !borrowedBooks.contains(book)) return false;
+        else {
+            borrowedBooks.remove(book);
+            return true;
+        }
     }
+
     /**
      * Displays the interaction interface for the student.
      */
